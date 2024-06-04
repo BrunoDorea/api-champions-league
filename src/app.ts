@@ -1,13 +1,12 @@
 import express, { Request, Response } from 'express'
+import router from './routes'
 
 function createApp() {
   const app = express()
 
   app.use(express.json())
 
-  app.get('/', function (req: Request, res: Response) {
-    res.status(200).json({ player: "Beckham" })
-  })
+  app.use("/api", router)
 
   return app
 }
