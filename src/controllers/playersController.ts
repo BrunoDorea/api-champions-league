@@ -1,4 +1,3 @@
-import { HttpResponse } from './../models/httpResponseModel';
 import { Request, Response } from "express"
 import * as service from "../services/playersService"
 import { noContent } from '../utils/httpHelper';
@@ -20,10 +19,14 @@ export const createPlayer = async (req: Request, res: Response) => {
   const bodyValue = req.body
   const httpResponse = await service.createPlayerService(bodyValue)
 
-  if(httpResponse){
+  if (httpResponse) {
     res.status(httpResponse.statusCode).json(httpResponse.body)
-  // } else {
-  //   const response = await noContent()
-  //   res.status(response.statusCode).json(response.body)
   }
+}
+
+export const deletePlayer = async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id)
+  const httpResponse = await service.deletePlayerService(id)
+
+  res.status(httpResponse.statusCode).json(httpResponse.body)
 }
