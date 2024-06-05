@@ -250,3 +250,7 @@ export const findAllPlayers = async (): Promise<PlayerModel[]> => {
 export const findPlayersById = async (id: number): Promise<PlayerModel | undefined> => {
   return db.find(player => player.id === id)
 }
+
+export const insertPlayer = async (player: PlayerModel) => {
+  db.push(player)
+}
