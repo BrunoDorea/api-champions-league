@@ -260,7 +260,10 @@ export const deleteOnePlayer = async (id: number) => {
   const index = db.findIndex(player => player.id === id)
   if (index !== -1) {
     db.splice(index, 1)
+    return true
   }
+
+  return false
 }
 
 export const findAndModifyPlayer = async (id: number, statistics: StatisticsModel): Promise<PlayerModel> => {
