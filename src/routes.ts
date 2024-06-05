@@ -7,5 +7,6 @@ router.get('/players', PlayerController.getPlayer)
 router.post('/players', PlayerController.createPlayer)
 router.get('/players/:id', PlayerController.getPlayerById)
 router.delete('/players/:id', PlayerController.deletePlayer)
+router.patch('/players/:id', PlayerController.updatePlayer)
 
 export default router
